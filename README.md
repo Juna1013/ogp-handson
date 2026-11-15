@@ -9,7 +9,6 @@ OGP Handson の開発環境をローカルで立ち上げる場合は以下の�
 ### Attention
 
 - 事前に [Node.js](https://nodejs.org) (v22.23.4 以上) をインストールしておく必要があります。
-- [Optional] 事前に [`.vscode/extensions.json`](./.vscode/extensions.json) に記載されている拡張機能をインストールしておくことを推奨します。
 
 ### 1. clone git repository
 
