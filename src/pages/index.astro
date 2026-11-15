@@ -5,7 +5,7 @@ import Layout from '../layouts/Layout.astro';
 const posts = await getCollection('posts');
 ---
 
-<Layout title="OGP Handson Blog" description="動的OGPのハンズオン用サンプルサイトです。">
+<Layout title="OGP Handson Blog" description="動的OGPのハンズオン用サンプルサイトです。" ogImage="/og/home.png">
 	<h1>OGP Handson Blog</h1>
 	<ul>
 		{posts.map((post) => (
