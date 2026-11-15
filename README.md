@@ -1,44 +1,51 @@
-# Astro Starter Kit: Minimal
+# OGP Handson 🖼️
 
-```sh
-npm create astro@latest -- --template minimal
+OGP Handson は、Astro と Satori を使って記事ごとの OGP 画像をビルド時に生成するハンズオンのために用意されたブログサンプルです。
+
+## Setup locally 🖥️
+
+OGP Handson の開発環境をローカルで立ち上げる場合は以下の手順に従ってください。
+
+### Attention
+
+- 事前に [Node.js](https://nodejs.org) (v22.23.4 以上) をインストールしておく必要があります。
+- [Optional] 事前に [`.vscode/extensions.json`](./.vscode/extensions.json) に記載されている拡張機能をインストールしておくことを推奨します。
+
+### 1. clone git repository
+
+```bash
+git clone "https://github.com/Juna1013/ogp-handson" && cd "./ogp-handson"
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 2. install dependencies
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 3. start development server
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+ブラウザで <http://localhost:4321> を開くと記事一覧が表示されます。
 
-## 🧞 Commands
+### 4. check OGP images
 
-All commands are run from the root of the project, from a terminal:
+生成された OGP 画像は以下の URL から確認できます。
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- トップページ: <http://localhost:4321/og/home.png>
+- 各記事: `http://localhost:4321/og/<記事ID>.png` (例: <http://localhost:4321/og/first-post.png>)
 
-## 👀 Want to learn more?
+## Build 📦
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# ogp-handson
+```bash
+npm run build
+```
+
+`./dist/` に静的サイトと OGP 画像が出力されます。ビルド結果は以下で確認できます。
+
+```bash
+npm run preview
+```
