@@ -4,7 +4,7 @@ import { renderOgCard } from '../../lib/og/card';
 export const GET: APIRoute = async () => {
     const png = await renderOgCard({
         title: 'OGP Handson Blog',
-        description: 'A sample site for generating Open Graph images at build time.',
+        description: '動的OGPのハンズオン用サンプルサイトです。',
     });
     return new Response(new Uint8Array(png), { headers: { 'Content-Type': 'image/png' } });
 };

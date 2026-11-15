@@ -1,22 +1,21 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import satori from 'satori';
 import sharp from 'sharp';
+import { fontsFor, stripUnsupportedGlyphs } from './fonts';
 
 export const OG_WIDTH = 1200;
 export const OG_HEIGHT = 630;
 
 const SITE_NAME = 'OGP Handson Blog';
 
-// 英数字だけを収録したファイル
-const FONT_PATH = path.resolve('node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-latin-700-normal.woff2');
-
 export interface OgCardInput {
     title: string;
     description: string;
 }
 
-export async function renderOgCard({ title, description }: OgCardInput): Promise<Buffer> {
+export async function renderOgCard(input: OgCardInput): Promise<Buffer> {
+    const title = stripUnsupportedGlyphs(input.title);
+    const description = stripUnsupportedGlyphs(input.description);
+
     // JSX を SVG に文字列を変換する
     const svg = await satori(
         <div
@@ -42,7 +41,8 @@ export async function renderOgCard({ title, description }: OgCardInput): Promise
         {
             width: OG_WIDTH,
             height: OG_HEIGHT,
-            fonts: [{ name: 'Noto Sans JP', data: fs.readFileSync(FONT_PATH), weight: 700, style: 'normal' }],
+            // 画像に描画する文字を含むスライスだけを渡す
+            fonts: fontsFor(title + description + SITE_NAME),
         },
     );
 
