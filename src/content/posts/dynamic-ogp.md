@@ -1,4 +1,5 @@
 ---
 title: Astroとsatoriで記事ごとのOGP画像をビルド時に自動生成する方法
 description: 記事タイトルと説明文から、SNS共有用の画像を1200×630ピクセルで生成します。画像編集ソフトは使用しません。
+cover: /covers/sample.webp
 ---

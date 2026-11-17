@@ -7,6 +7,7 @@ const posts = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
+        cover: z.string().optional(), // OGP画像に表示する画像
     }),
 });
 
