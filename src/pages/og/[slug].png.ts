@@ -9,7 +9,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 export const GET: APIRoute = async ({ props }) => {
-    const { title, description } = props.post.data;
-    const png = await renderOgCard({ title, description });
+    const { title, description, cover } = props.post.data;
+    const png = await renderOgCard({ title, description, cover });
     return new Response(new Uint8Array(png), { headers: { 'Content-Type': 'image/png' } });
 };
